@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
-import { i18n } from './next-i18next.config';
-
 const nextConfig = {
   reactStrictMode: true,
-  i18n
+  i18n: {
+    locales: ['en', '']
+  }
 }
 
 module.exports = nextConfig
