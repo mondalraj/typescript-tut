@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -13,7 +12,7 @@ const Home: NextPage = ({ locale }: any) => {
   return (
     <div>
       <Head>
-        <title>Simply Jet</title>
+        <title>{t("common:companyName")}</title>
         <meta
           name="description"
           content="Charter your private jet effortlessly, anywhere, at any time."
@@ -21,8 +20,8 @@ const Home: NextPage = ({ locale }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar locale={locale} />
-      <Header text={t("home:welcome_msg")} locale={locale} />      
+      <Navbar locale={locale} contact={t("common:contact")} blogs={t("common:blogs")} about={t("common:about")} />
+      <Header text={t("home:welcome_msg")} cta={t("home:cta")} tagline={t("home:tagline")} image_url={t("home:image")} locale={locale} />      
 
       {/* <h1>{t("home:welcome_msg")}</h1>
       {locale === "de" ? <h2>This is german</h2> : ""}
@@ -42,7 +41,7 @@ export async function getStaticProps({ locale }: any) {
   return {
     props: {
       locale,
-      ...(await serverSideTranslations(locale, ["home"])),
+      ...(await serverSideTranslations(locale, ["home", "common"])),
     },
   };
 }
