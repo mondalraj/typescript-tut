@@ -65,7 +65,7 @@ const Navbar = ({ locale, contact, blogs, about }: any) => {
 
         <div>
           <select
-            className="bg-accent cursor-pointer py-2 px-5 text-text rounded-lg outline-none"
+            className="bg-text cursor-pointer py-2 px-5 text-white rounded-lg outline-none"
             name="lang"
             id="lang"
             defaultValue={locale}
